@@ -1,0 +1,6 @@
+################# paste on .SHELLrc
+avim(){
+    workdir=$(readlink -f $PWD)
+    podman start astrovim-pod
+    podman exec -it --detach-keys="" --user="root" -w ${workdir} astrovim-pod nvim $@
+}
